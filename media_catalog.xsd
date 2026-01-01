@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Define a base MediaType -->
+    <xs:complexType name="MediaType" abstract="true">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="year" type="xs:integer"/>
+            <xs:element name="genre" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:integer" use="required"/>
+        <xs:attribute name="type" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <!-- BookType extends MediaType -->
+    <xs:complexType name="BookType">
+        <xs:complexContent>
+            <xs:extension base="MediaType">
+                <xs:sequence>
+                    <xs:element name="author" type="xs:string"/>
+                    <xs:element name="pages" type="xs:integer"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- MovieType extends MediaType -->
+    <xs:complexType name="MovieType">
+        <xs:complexContent>
+            <xs:extension base="MediaType">
+                <xs:sequence>
+                    <xs:element name="director" type="xs:string"/>
+                    <xs:element name="duration" type="xs:integer"/> <!-- in minutes -->
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- VideoGameType extends MediaType -->
+    <xs:complexType name="VideoGameType">
+        <xs:complexContent>
+            <xs:extension base="MediaType">
+                <xs:sequence>
+                    <xs:element name="platform" type="xs:string"/>
+                    <xs:element name="developer" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- CatalogType holds a sequence of MediaType (but note: MediaType is abstract, so we must use its derived types) -->
+    <xs:complexType name="CatalogType">
+        <xs:sequence>
+            <xs:element name="media" type="MediaType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Root element -->
+    <xs:element name="catalog" type="CatalogType"/>
+
+</xs:schema>
