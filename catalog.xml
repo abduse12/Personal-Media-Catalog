@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="media_catalog.xsd">
+    <media id="1" type="book" xsi:type="BookType">
+        <title>The Great Gatsby</title>
+        <year>1925</year>
+        <genre>Fiction</genre>
+        <author>F. Scott Fitzgerald</author>
+        <pages>180</pages>
+    </media>
+    <media id="2" type="movie" xsi:type="MovieType">
+        <title>Inception</title>
+        <year>2010</year>
+        <genre>Sci-Fi</genre>
+        <director>Christopher Nolan</director>
+        <duration>148</duration>
+    </media>
+    <media id="3" type="game" xsi:type="VideoGameType">
+        <title>The Legend of Zelda: Breath of the Wild</title>
+        <year>2017</year>
+        <genre>Adventure</genre>
+        <platform>Nintendo Switch</platform>
+        <developer>Nintendo</developer>
+    </media>
+</catalog>
